@@ -259,7 +259,7 @@ ul.settings-menu li.menu-item.active a {
 
 ul.settings-menu li.menu-item a:hover:before {
   opacity: 0.3;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=30)';
   filter: alpha(opacity=30);
 }
 
@@ -268,10 +268,10 @@ ul.settings-menu li.menu-item a:before {
   top: 0;
   left: 0;
   height: 100%;
-  content: " ";
+  content: ' ';
   border-left: 4px solid #5f7187;
   opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
   filter: alpha(opacity=0);
 }
 
@@ -315,4 +315,72 @@ ul.settings-menu li.menu-item.active a:before {
   font-size: 150%;
   text-shadow: 1px 1px #fff;
   color: #3f3f3f;
+}
+
+@media (max-width: 767px) {
+  .md-modal {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .md-modal,
+  .settings-pane,
+  .settings {
+    height: 100%;
+  }
+
+  form.settings {
+    max-height: 100%;
+    flex-direction: column;
+  }
+
+  .settings .settings-left {
+    width: 100%;
+  }
+
+  ul.settings-menu li.headline {
+    display: none;
+  }
+
+  ul.settings-menu {
+    flex-direction: row;
+  }
+
+  ul.settings-menu li.menu-item a {
+    padding: 10px 20px;
+  }
+
+  ul.settings-menu li.menu-item a::before {
+    border-left: none;
+  }
+
+  ul.settings-menu li.menu-item a:hover {
+    opacity: 0.3;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=30)';
+    filter: alpha(opacity=30);
+  }
+
+  ul.settings-menu li.menu-item.active a,
+  ul.settings-menu li.menu-item a:hover {
+    background: -webkit-linear-gradient(to top, #33363b, transparent 50%);
+    background: linear-gradient(to top, #33363b, transparent 50%);
+    border-bottom: 4px solid #5f7187;
+  }
+
+  .settings .settings-content {
+    border: none;
+    border-radius: 0;
+  }
+
+  .settings .settings-content .headline h3 {
+    display: none;
+  }
+
+  ul.settings-menu li.menu-item a {
+    padding: 10px 20px;
+  }
+
+  .settings .settings-page .settings-innerpage {
+    padding: 5px;
+  }
 }
