@@ -1,22 +1,25 @@
-const webpack = require("webpack");
+const webpack = require('webpack')
+const path = require('path')
 
 const config = {
-  entry: "./src/index",
+  entry: './src/index',
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ["babel-loader", "eslint-loader"]
+        use: ['babel-loader', 'eslint-loader']
       }
     ]
   },
   output: {
     //filename: 'ReactSettingsPane.js',
-    library: "ReactSettingsPane",
-    libraryTarget: "umd"
+    library: 'ReactSettingsPane',
+    libraryTarget: 'umd'
   },
-  plugins: [new webpack.optimize.OccurrenceOrderPlugin()]
-};
+  plugins: [
+    new webpack.optimize.OccurrenceOrderPlugin()
+  ]
+}
 
-module.exports = config;
+module.exports = config

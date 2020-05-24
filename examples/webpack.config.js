@@ -1,18 +1,37 @@
-const webpack = require("webpack");
+const webpack = require('webpack')
+const CopyPlugin = require('copy-webpack-plugin')
+const path = require('path')
 
 const config = {
-  entry: "./app",
+  entry: ['./app'],
   module: {
     rules: [
       {
-        use: ["babel-loader", "eslint-loader"]
+        test: /\.js$/,
+        use: ['babel-loader']
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
   output: {
-    filename: "app_compiled.js"
+    filename: 'app_compiled.js'
   },
-  plugins: [new webpack.optimize.OccurrenceOrderPlugin()]
-};
+  devServer: {
+    contentBase: './dist',
+    hot: true,
+    open: true
+  },
+  plugins: [
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new CopyPlugin(
+      {
+        patterns: [{ from: path.join(__dirname, "index.html"), to: path.join(__dirname, "dist") }]
+      }
+    )
+  ]
+}
 
-module.exports = config;
+module.exports = config
